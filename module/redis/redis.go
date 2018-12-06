@@ -4,7 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"time"
 	"github.com/go-redis/redis"
-	"im/web/module/config"
+	"im_api/module/config"
 )
 
 

@@ -4,7 +4,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	"time"
 	"github.com/astaxie/beego"
-	"im/web/libs/define"
+	"im_api/libs/define"
 )
 
 const USER_DB = "test"

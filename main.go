@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "im/web/routers"
+	_ "im_api/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/plugins/cors"

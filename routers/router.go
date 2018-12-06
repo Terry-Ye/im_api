@@ -9,9 +9,9 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
-	"im/web/controllers/user"
+	"im_api/controllers/user"
 
-	"im/web/controllers"
+	"im_api/controllers"
 )
 
 func init() {

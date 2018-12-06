@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["im/web/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im/web/controllers/user:UserController"],
+	beego.GlobalControllerRouter["im_api/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im_api/controllers/user:UserController"],
 		beego.ControllerComments{
 			Method: "CheckAuth",
 			Router: `/check_auth`,
@@ -15,7 +15,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im/web/controllers/user:UserController"],
+	beego.GlobalControllerRouter["im_api/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im_api/controllers/user:UserController"],
 		beego.ControllerComments{
 			Method: "Login",
 			Router: `/login`,
@@ -23,7 +23,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im/web/controllers/user:UserController"],
+	beego.GlobalControllerRouter["im_api/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im_api/controllers/user:UserController"],
 		beego.ControllerComments{
 			Method: "Logout",
 			Router: `/logout`,
@@ -31,7 +31,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im/web/controllers/user:UserController"],
+	beego.GlobalControllerRouter["im_api/controllers/user:UserController"] = append(beego.GlobalControllerRouter["im_api/controllers/user:UserController"],
 		beego.ControllerComments{
 			Method: "Register",
 			Router: `/register`,

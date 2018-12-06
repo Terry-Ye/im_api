@@ -1,10 +1,10 @@
 package userLogic
 
 import (
-	"im/web/models/userModel"
-	"im/web/libs/define"
-	"im/web/module/util"
-	"im/web/module/redis"
+	"im_api/models/userModel"
+	"im_api/libs/define"
+	"im_api/module/util"
+	"im_api/module/redis"
 	"github.com/astaxie/beego"
 )
 

@@ -2,11 +2,11 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
-	"im/web/module/config"
+	"im_api/module/config"
 
 	"github.com/astaxie/beego"
 	"strings"
-	"im/web/models/userModel"
+	"im_api/models/userModel"
 	_ "github.com/go-sql-driver/mysql"
 )
 

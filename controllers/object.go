@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"im/web/models"
+	"im_api/models"
 	"encoding/json"
 
 	"github.com/astaxie/beego"

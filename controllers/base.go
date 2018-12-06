@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
-	"im/web/libs/define"
+	"im_api/libs/define"
 )
 
 type DataNil struct {

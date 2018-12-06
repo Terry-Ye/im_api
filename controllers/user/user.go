@@ -1,11 +1,11 @@
 package user
 
 import (
-	"im/web/models/userModel"
-	"im/web/controllers"
+	"im_api/models/userModel"
+	"im_api/controllers"
 	"encoding/json"
-	"im/web/logic/userLogic"
-	"im/web/libs/define"
+	"im_api/logic/userLogic"
+	"im_api/libs/define"
 )
 
 // Operations about Users

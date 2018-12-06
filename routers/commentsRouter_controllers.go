@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["im/web/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im/web/controllers:ObjectController"],
+	beego.GlobalControllerRouter["im_api/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im_api/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
@@ -15,7 +15,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im/web/controllers:ObjectController"],
+	beego.GlobalControllerRouter["im_api/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im_api/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
@@ -23,7 +23,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im/web/controllers:ObjectController"],
+	beego.GlobalControllerRouter["im_api/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im_api/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Get",
 			Router: `/:objectId`,
@@ -31,7 +31,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im/web/controllers:ObjectController"],
+	beego.GlobalControllerRouter["im_api/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im_api/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:objectId`,
@@ -39,7 +39,7 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
-	beego.GlobalControllerRouter["im/web/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im/web/controllers:ObjectController"],
+	beego.GlobalControllerRouter["im_api/controllers:ObjectController"] = append(beego.GlobalControllerRouter["im_api/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:objectId`,
