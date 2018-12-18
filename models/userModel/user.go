@@ -18,6 +18,7 @@ type User struct {
 	UserName   string `valid:"Required;MinSize(3);MaxSize(20)"`
 	Password   string `valid:"Required;MinSize(6);MaxSize(20)"`
 	CreateTime int64  `data:"CreateTime"`
+	UpdateTime int64  `data:"UpdateTime"`
 }
 
 type Auth struct {
@@ -59,6 +60,7 @@ func AddOne(user User) (code int, msg string) {
 	o.Using("default") // 默认使用 default，你可以指定为其他数据库
 
 	user.CreateTime = time.Now().Unix()
+	user.UpdateTime = time.Now().Unix()
 	_, err := o.Insert(&user)
 	if err != nil {
 		code = define.ERR_MYSQL_EXCEPTION_CODE
