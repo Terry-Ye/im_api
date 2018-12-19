@@ -27,5 +27,83 @@ $GOPATH/bin/bee run
 
 
 
+
 ### 部署注意事项
 1. 部署服务器注意防火墙是否开放对应的端口(本地不需要，具体需要的端口在各层的配置文件)
+
+
+### api 文档
+
+#### 注册接口
+
+* http 请求方式：post
+* 请求地址：http://localhost:8080/v1/user/register
+* 请求参数
+```
+{
+    "UserName":"terry4444",
+    "Password":"terry4444"
+}
+```
+* 返回数据格式（示例）
+```
+{
+    "code":0,
+    "msg":"success"
+}
+```
+
+
+#### 登录接口
+
+* http 请求方式：post
+* 请求地址：http://localhost:8080/v1/user/login
+* 请求参数
+```
+{
+    "UserName":"terry4444",
+    "Password":"terry4444"
+}
+```
+* 返回数据格式（示例）
+```
+{
+    "code":0,
+    "msg":"success"
+}
+```
+
+#### 检查auth接口
+
+* http 请求方式：get
+* 请求地址：http://localhost:8080/v1/user/login
+* 请求参数
+```
+{
+    "Auth":"8e11412585c38a7d"
+}
+```
+* 返回数据格式（示例）
+```
+{
+  "code": 0,
+  "msg": "请求成功",
+  "data": {
+    "Auth": "5fee48a98f1c78f5",
+    "UserId": "863440c38d717354",
+    "UserName": "terry4444"
+  }
+}
+```
+
+#### 更新在线人数（由ws推送）
+
+* http 请求方式：get
+* 请求地址：http://localhost:6921/api/v1/count?rid=1
+* 返回数据格式（示例）
+```
+{
+    "code":0,
+    "msg":"success"
+}
+```
