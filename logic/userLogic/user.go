@@ -6,8 +6,10 @@ import (
 	"im_api/module/util"
 	"im_api/module/redis"
 	"github.com/astaxie/beego"
+	"github.com/smallnest/rpcx/log"
 )
 
+const REDIS_PREFIX = "im_"
 type ReturnInfo struct {
 	Auth     string
 	UserId   string
@@ -32,14 +34,22 @@ func CheckAuth(auth string) (code int, msg string, ret ReturnInfo) {
 	if err != nil {
 		beego.Error("redis init  err: %s", err)
 	}
-	userInfo, err := redis.HGetAll(auth)
 
+	userInfo, err := redis.HGetAll(auth)
+	log.Debug("userinfo %v", userInfo)
 	if err != nil {
 		beego.Debug("json err %s", err)
 		code = define.ERR_USER_NO_EXIST_CODE
 		msg = define.ERR_USER_NO_EXIST_MSG
 		return
 	}
+
+	if _, ok := userInfo["UserName"]; !ok {
+		code = define.ERR_USER_AUTH_INVALID_CODE
+		msg = define.ERR_USER_AUTH_INVALID_MSG
+		return
+	}
+
 	ret.UserName = userInfo["UserName"]
 	ret.UserId = userInfo["UserId"]
 	ret.Auth = auth
@@ -60,7 +70,6 @@ func AddOne(user userModel.User) (code int, msg string) {
 
 func Login(user userModel.User) (code int, msg string, RetData ReturnInfo) {
 	userInfo := userModel.GetUserInfoByUserName(user.UserName)
-	beego.Debug("lgin 111")
 	// password err
 	if util.Md5(user.Password) != userInfo.Password {
 		beego.Debug("lgin password %s, userinfo %s,", user.Password, userInfo.Password)
@@ -79,10 +88,12 @@ func Login(user userModel.User) (code int, msg string, RetData ReturnInfo) {
 	userData["UserName"] = userInfo.UserName
 
 	err = redis.HMSet(auth, userData)
+
 	RetData = ReturnInfo{auth, userInfo.Id, userInfo.UserName}
 	if err != nil {
 		beego.Error("redis set auth err: %s", err)
 	}
+
 
 	code = define.SUCCESS_CODE
 	msg = define.SUCCESS_MSG
@@ -103,3 +114,6 @@ func DeleteAuth(auth string) (code int, msg string) {
 	msg = define.SUCCESS_MSG
 	return
 }
+
+
+
